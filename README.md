@@ -32,8 +32,10 @@ Before you can run this project, you need to have XAMPP installed on your local 
      ```php
      $mail->Username   = '';                     // SMTP username
      $mail->Password   = '';                     // App password
+     $mail->setFrom('', '');                     // Set the sender's email and name
+     $mail->addAddress('', '');                  // Add a recipient's email and name
      ```
-   - Replace the placeholder values with your actual SMTP credentials.
+   - Replace the placeholder values with your actual SMTP credentials and email addresses.
 
    **Generating an App Password for Gmail**:
    - Go to [Manage Google Account](https://myaccount.google.com/).
@@ -44,6 +46,19 @@ Before you can run this project, you need to have XAMPP installed on your local 
    - Copy the generated app password.
    - Paste this app password in place of the placeholder in your PHP script under `$mail->Password`.
    - For the `$mail->Username`, enter your Gmail address that you used to generate the app password.
+
+   **Setting the Sender and Recipient**:
+   - In the `setFrom` method:
+     ```php
+     $mail->setFrom('your-email@gmail.com', 'Your Name');
+     ```
+     Replace `'your-email@gmail.com'` with your email address and `'Your Name'` with the name you want to appear as the sender.
+
+   - In the `addAddress` method:
+     ```php
+     $mail->addAddress('recipient-email@example.com', 'Recipient Name');
+     ```
+     Replace `'recipient-email@example.com'` with the recipient's email address and `'Recipient Name'` with their name.
 
 8. **Access the Project**:
    - Open your web browser (e.g., Chrome).
